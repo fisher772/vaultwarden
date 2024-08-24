@@ -1,0 +1,31 @@
+---
+
+services:
+  vaultwarden:
+    image: fisher772/vaultwarden
+    container_name: vaultwarden
+    hostname: vaultwarden
+    restart: unless-stopped
+    volumes:
+      - data:/data/
+      - logs:/var/log/vaultwarden
+      - nginx:/data/nginx
+    environment:
+      - TZ=${EKB}
+      - LE_FQDN=${FQDN}
+      - COUNTAINER_ALIAS=${C_ALIAS}
+      - SERVER_ALIAS=${S_ALIAS}
+    networks:
+      - nginx
+      - vaultwarden
+
+networks:
+  vaultwarden:
+    external: true
+  nginx:
+    external: true
+
+volumes:
+  data:
+  logs:
+  nginx:
