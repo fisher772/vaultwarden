@@ -13,7 +13,7 @@ services:
     environment:
       - TZ=${EKB}
       - LE_FQDN=${FQDN}
-      - COUNTAINER_ALIAS=${C_ALIAS}
+      - CONTAINER_ALIAS=${C_ALIAS}
       - SERVER_ALIAS=${S_ALIAS}
     networks:
       - nginx
