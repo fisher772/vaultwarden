@@ -94,7 +94,7 @@ jobs:
       - name: Test Docker image. Сontainer Up
         id: test_image
         run: |
-          exec $(which docker) run -d --name ${{ env.CONTAINER_NAME }} ${{ steps.meta_A.outputs.tags }}
+          exec $(which docker) run -d --name ${{ env.CONTAINER_NAME }} -e I_REALLY_WANT_VOLATILE_STORAGE=true ${{ steps.meta_A.outputs.tags }}
 
       - name: Test Docker image. Get container status for CI
         id: get_status
